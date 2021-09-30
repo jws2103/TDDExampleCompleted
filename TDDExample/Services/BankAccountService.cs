@@ -15,8 +15,8 @@ namespace TDDExample
             {
                 AccountName = accountHolder,
                 Balance = initAmount,
-                AccountNumber = "1234",
-                BSBNumber = "5678"
+                AccountNumber = "082143",
+                BSBNumber = "54321234"
             };
 
             return _currentAccount;

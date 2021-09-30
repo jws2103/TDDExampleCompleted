@@ -38,18 +38,8 @@ namespace TDDExample
             /* Requirements
                 1.  Create the account with your name and initial deposit when the page is initiated
                 2.  Set MyAccount
-                3.  Wrap with try & catch statement in case the exception is thrown
-                3.1.Log the exception in catch
              */
-            // TODO: Implements
-            try
-            {
-                MyAccount = _bankAccountService.CreateAccount("test", 10);
-            }
-            catch (ArgumentInvalidException ex)
-            {
-                _logger.Log(ex.Message);
-            }
+            MyAccount = _bankAccountService.CreateAccount("test", 10);
         }
 
         private void DoDeposit()
@@ -61,7 +51,6 @@ namespace TDDExample
                 4.  Wrap with try & catch statement in case the exception is thrown
                 4.1.Log the exception in catch
              */
-            // TODO: Implements
             try
             {
                 MyAccount.Balance = _bankAccountService.Deposit(DepositAmount);
@@ -82,7 +71,6 @@ namespace TDDExample
                 4.  Wrap with try & catch statement in case the exception is thrown
                 4.1.Log the exception in catch
              */
-            // TODO: Implements
             try
             {
                 MyAccount.Balance = _bankAccountService.Withdraw(WithdrawAmount);

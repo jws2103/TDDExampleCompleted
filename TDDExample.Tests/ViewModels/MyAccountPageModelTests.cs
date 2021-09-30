@@ -7,22 +7,6 @@ namespace TDDExample.Tests
     public class MyAccountPageModelTests : UnitTestBase<MyAccountPageModel>
     {
         [Fact]
-        public void Init_ShouldLogError_WhenBankAccountThrowsArgumentInvalidException()
-        {
-            // Arrange
-            var argumentInvalidException = new ArgumentInvalidException("invalid");
-            var mockedLogger = Mocker.GetMock<ILogger>();
-            var mockedBankAcctSvc = Mocker.GetMock<IBankAccountService>();
-            mockedBankAcctSvc.Setup(b => b.CreateAccount("test", 10)).Throws(argumentInvalidException);
-            
-            // Act
-            Sut.Init(null);
-            
-            // Assert
-            mockedLogger.Verify(l => l.Log(It.IsAny<string>()), Times.Once);
-        }
-
-        [Fact]
         public void Init_ShouldSetMyAccount_WhenCreateAccountSucceed()
         {
             // Arrange
