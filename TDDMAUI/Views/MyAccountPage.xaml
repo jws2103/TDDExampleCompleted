@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TDDMAUI.Views.MyAccountPage">
+    <StackLayout VerticalOptions="Center"
+                 HorizontalOptions="Center"
+                 Spacing="10">
+        <Label Text="My account summary"
+               VerticalTextAlignment="Start"
+               HorizontalTextAlignment="Center" />
+        <Label Text="{Binding MyAccount.AccountName}" />
+        <Label Text="{Binding MyAccount.BSBNumber}" />
+        <Label Text="{Binding MyAccount.AccountNumber}" />
+        <Label Text="{Binding MyAccount.Balance, StringFormat='The current balance is {0:C2}'}" />
+        <Grid RowDefinitions="Auto,Auto"
+              ColumnDefinitions="*,*"
+              RowSpacing="20"
+              ColumnSpacing="20">
+            <Label Text="Deposit amount"
+                   TextDecorations="Underline" />
+            <Entry Grid.Row="1"
+                   Grid.Column="0"
+                   Text="{Binding DepositAmount}"
+                   Keyboard="Numeric" />
+            <Label Grid.Row="0"
+                   Grid.Column="1"
+                   Text="Withdraw amount"
+                   TextDecorations="Underline" />
+            <Entry Grid.Row="1"
+                   Grid.Column="1"
+                   Text="{Binding WithdrawAmount}"
+                   Keyboard="Numeric" />
+        </Grid>
+        <Grid ColumnDefinitions="*,*"
+              ColumnSpacing="10">
+            <Button Text="Deposit"
+                    Command="{Binding DepositCommand}" />
+            <Button Grid.Column="1"
+                    Text="Withdraw"
+                    Command="{Binding WithdrawCommand}" />
+        </Grid>
+    </StackLayout>
+</ContentPage>
