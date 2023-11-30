@@ -3,6 +3,7 @@ using Moq;
 using TDDMAUI.Exceptions;
 using TDDMAUI.Models;
 using TDDMAUI.Services.Interfaces;
+using TDDMAUI.UnitTests.Mocks;
 using TDDMAUI.ViewModels;
 
 namespace TDDMAUI.UnitTests.ViewModels;
@@ -46,12 +47,10 @@ public class MyAccountPageModelTests : UnitTestBase<MyAccountPageModel>
         // Arrange
         double initialBalance = 10;
         double depositAmount = 20;
+        var mockedBankAcct = BankAccountFactory.GenerateBankAccount();
+        mockedBankAcct.Balance = initialBalance;
         var mockedBankAcctSvc = Mocker.GetMock<IBankAccountService>();
-        mockedBankAcctSvc.Setup(b => b.CreateAccount(It.IsAny<string>(), It.IsAny<double>()))
-            .Returns(new BankAccount
-            {
-                Balance = initialBalance
-            });
+        mockedBankAcctSvc.Setup(b => b.CreateAccount(It.IsAny<string>(), It.IsAny<double>())).Returns(mockedBankAcct);
         mockedBankAcctSvc.Setup(b => b.Deposit(depositAmount)).Returns(initialBalance + depositAmount);
         Sut.OnAppearing();
         Sut.DepositAmount = depositAmount;
@@ -86,12 +85,10 @@ public class MyAccountPageModelTests : UnitTestBase<MyAccountPageModel>
         // Arrange
         double initialBalance = 30;
         double withdrawAmount = 20;
+        var mockedBankAcct = BankAccountFactory.GenerateBankAccount();
+        mockedBankAcct.Balance = initialBalance;
         var mockedBankAcctSvc = Mocker.GetMock<IBankAccountService>();
-        mockedBankAcctSvc.Setup(b => b.CreateAccount(It.IsAny<string>(), It.IsAny<double>()))
-            .Returns(new BankAccount
-            {
-                Balance = initialBalance
-            });
+        mockedBankAcctSvc.Setup(b => b.CreateAccount(It.IsAny<string>(), It.IsAny<double>())).Returns(mockedBankAcct);
         mockedBankAcctSvc.Setup(b => b.Withdraw(withdrawAmount)).Returns(initialBalance - withdrawAmount);
         Sut.OnAppearing();
         Sut.WithdrawAmount = withdrawAmount;
