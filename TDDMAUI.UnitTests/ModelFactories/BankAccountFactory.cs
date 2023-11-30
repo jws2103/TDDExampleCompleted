@@ -1,7 +1,7 @@
 using Bogus;
 using TDDMAUI.Models;
 
-namespace TDDMAUI.UnitTests.Mocks;
+namespace TDDMAUI.UnitTests.ModelFactories;
 
 public static class BankAccountFactory
 {

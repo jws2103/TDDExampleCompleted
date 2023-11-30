@@ -3,7 +3,7 @@ using Moq;
 using TDDMAUI.Exceptions;
 using TDDMAUI.Models;
 using TDDMAUI.Services.Interfaces;
-using TDDMAUI.UnitTests.Mocks;
+using TDDMAUI.UnitTests.ModelFactories;
 using TDDMAUI.ViewModels;
 
 namespace TDDMAUI.UnitTests.ViewModels;
