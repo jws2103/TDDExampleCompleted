@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>TDDMAUI</ApplicationTitle>
+		<ApplicationTitle>TDDMAUICompleted</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.tddmauicompleted</ApplicationId>
